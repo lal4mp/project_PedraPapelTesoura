@@ -9,13 +9,22 @@
 <body>
     <h1>Pedra, Papel ou Tesoura</h1>
     <button class="btn_game" id="btn_start">Iniciar</button>
-    
-    <div id="div_ppt">
-        <button class="btn_ppt" id="pedra"><img src="images/punho-fechado.png" alt=""></button> 
+    <p id="count_jogadas"></p>
+
+    <div id="div_players_p">
+        <p id="p1">Player 1<br>Você</p>
+        <p id="p2">Player 2<br>Computador</p>
+    </div>
+    <div id="div_players">
+        <div id="div_p1">
+            <button class="btn_ppt" id="pedra"><img src="images/img-pedra.png" alt=""></button>
+            <button class="btn_ppt" id="papel"><img src="images/img-papel.png" alt=""></button>
+            <button class="btn_ppt" id="tesoura"><img src="images/img-tesoura.png" alt=""></button>        
+        </div>
         X
-        <button class="btn_ppt" id="papel"><img src="images/mao-aberta.png" alt=""></button>
-        X
-        <button class="btn_ppt" id="tesoura"><img src="images/paz.png" alt=""></button>        
+        <div id="div_p2">
+            <img src="images/img-branca.png" alt="" id="img_p2">      
+        </div>
     </div>
     
     <div id="div_results">

@@ -4,13 +4,11 @@ body{
     align-items: center;
     justify-content: center;
 }
-h1 {
-    text-align: center;
-}
 
+/* botões iniciar, finalizar e limpar */
 .btn_game {
     background-color: rgb(0, 0, 0);
-    color: white;
+    color: rgb(255, 255, 255);
     margin: 2px;
     border: 1px solid black;
     border-radius: 0%;
@@ -36,32 +34,65 @@ h1 {
     background-color: white;
 }
 
-#div_ppt {
+/* div players */
+#div_players_p{
+    position: relative;
+    width: 50vw;
     display: flex;
+    font-size: 14px;
+    font-family: 'Courier New', Courier, monospace;
+}
+#p1 {
+    padding-left: 15px;
+}
+#p2 {
+    position: absolute;
+    right: 0.1px;
+}
+#div_players {
+    width: 50vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* player - usuário */
+#div_p1 {
+    display: grid;
     justify-content: center;
     align-items: center;
-    gap: 30px;
-    margin-top: 50px;
+    gap: 10px;
 }
-#div_ppt button {
+#div_p1 button {
     background-color: white;
     border: 0;
     cursor: pointer;
 }
-img {
-    width: 100px;
-    height: 100px;
+#div_p1 img {
+    width: 60px;
+    height: 60px;
     padding: 10px;
     border: 1px solid black;
     border-radius: 30%;
 }
-img:hover {
+#div_p1 img:hover {
     background-color: rgb(224, 224, 224);
 }
 
+/* player - computador */
+#div_p2 img{
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 30%;
+}
+
+/* resultados */
 #div_results{
+    width: 40vw;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     gap: 20px;
     margin-top: 50px;
 }
@@ -84,9 +115,9 @@ img:hover {
     color: rgb(204, 22, 22);
     font-weight: bold;
 }
-
-#final_result{
+#final_result, #count_jogadas{
     text-align: center;
     font-size: 18px;
     font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
 }
