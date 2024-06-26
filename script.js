@@ -3,7 +3,6 @@ let count_jogadas = document.querySelector("#count_jogadas");
 let btn_start = document.querySelector("#btn_start");
 let btn_end = document.querySelector("#btn_end");
 let btn_clean = document.querySelector("#btn_clean");
-let img_p2 = document.querySelector("#img_p2");
 
 let pedra = document.querySelector("#pedra");
 let papel = document.querySelector("#papel");
@@ -17,6 +16,7 @@ let count = 0;
 let game_status = '';
 
 // Start
+document.querySelectorAll(".dots").forEach((dot) => dot.style.display = 'none');
 btn_start.addEventListener('click', function(){
         if(game_status == ''){
             game_status = 'on';
@@ -28,25 +28,26 @@ btn_start.addEventListener('click', function(){
     });
 
 // Jogo
-function player(){
+function player2(){
     let number = Math.floor(Math.random()*3);
     if(number === 1){
-        img_p2.src = 'images/img-pedra.png';
+        document.querySelector(".div_p2 p").innerHTML = '<img src = "images/img-pedra.png" id="img_p2">';
         return 'pedra'; 
     } 
     else if(number === 2){
-        img_p2.src = 'images/img-papel.png';
+        document.querySelector(".div_p2 p").innerHTML = '<img src = "images/img-papel.png" id="img_p2">';
         return 'papel';
     } 
     else{
-        img_p2.src = 'images/img-tesoura.png';
+        document.querySelector(".div_p2 p").innerHTML = '<img src = "images/img-tesoura.png" id="img_p2">';
         return 'tesoura';  
     } 
 }
 
 function game(p1){
     setTimeout(() => {
-        let p2 = player();
+        document.querySelectorAll(".dots").forEach((dot) => dot.style.display = 'none');
+        let p2 = player2();
         if(p1 === p2){
             empates++;
         }
@@ -76,7 +77,7 @@ function game(p1){
         setTimeout(() => {
             count++;
             count_jogadas.textContent = 'Jogada ' + count;
-            img_p2.src = 'images/img-branca.png';
+            document.querySelector(".div_p2 p").innerHTML = ' ';
             document.querySelector("#pedra img").style.background = 'white';
             document.querySelector("#papel img").style.background = 'white';
             document.querySelector("#tesoura img").style.background = 'white';
@@ -88,8 +89,8 @@ function game(p1){
 // clicar na pedra 
 pedra.addEventListener('click', function(){
         if(game_status == 'on'){
-            document.querySelector("#pedra img").style.background = '#a3e8fb';
-            img_p2.src = 'images/img-carregando.png';
+            document.querySelector("#pedra img").style.background = '#b9b9b9';
+            document.querySelectorAll(".dots").forEach((dot) => dot.style.display = 'flex');
             game_status = '';
             game('pedra');
         }   
@@ -97,8 +98,8 @@ pedra.addEventListener('click', function(){
 // clicar no papel 
 papel.addEventListener('click', function(){
         if(game_status == 'on'){
-            document.querySelector("#papel img").style.background = '#a3e8fb';
-            img_p2.src = 'images/img-carregando.png';
+            document.querySelector("#papel img").style.background = '#b9b9b9';
+            document.querySelectorAll(".dots").forEach((dot) => dot.style.display = 'flex');            
             game_status = '';
             game('papel');
         }
@@ -106,8 +107,8 @@ papel.addEventListener('click', function(){
 // clicar na tesoura 
 tesoura.addEventListener('click', function(){
         if(game_status == 'on'){
-            document.querySelector("#tesoura img").style.background = '#a3e8fb';
-            img_p2.src = 'images/img-carregando.png';
+            document.querySelector("#tesoura img").style.background = '#b9b9b9';
+            document.querySelectorAll(".dots").forEach((dot) => dot.style.display = 'flex');  
             game_status = '';
             game('tesoura');
         }   
@@ -148,6 +149,8 @@ btn_clean.addEventListener('click', function(){
         document.querySelector("#derrotas p").textContent = derrotas.toString(); 
         document.querySelector("#empates p").textContent = empates.toString(); 
 
+        document.querySelector(".div_p2 p").innerHTML = '';
+        document.querySelectorAll(".dots").forEach((dot) => dot.style.display = 'none');
         btn_start.classList.remove('alt_btn_start');
         btn_start.textContent = 'Iniciar';
 
